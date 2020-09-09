@@ -1,10 +1,16 @@
 <template>
-  <div id="app"></div>
+  <div id="app">
+    <main-tab-bar />
+  </div>
 </template>
 
 <script>
+import MainTabBar from "@components/content/Maintabbar/MainTabBar";
 export default {
   name: "App",
+  components: {
+    MainTabBar,
+  },
 };
 </script>
 
