@@ -122,7 +122,7 @@ import TabControl from "@components/content/Tabcontrol/TabControl"
 import HomeSwiper from "./childComps/HomeSwiper";
 import HomeRecommend from "./childComps/HomeRecommend";
 import HomeFeature from "./childComps/HomeFeature";
-import { getHomeMultidata } from "@network/home";
+import { getHomeMultidata, getProductData } from "@network/home";
 export default {
   name: "Home",
   components: {
@@ -136,15 +136,34 @@ export default {
     return {
       banners: [],
       recommends: [],
+      goods: {
+        'pop': {page: 1, list: []},
+        'new': {page: 1, list: []},
+        'sell': {page: 1, list: []}
+      }
     };
   },
   created() {
-    getHomeMultidata().then((res) => {
-      console.log(res);
-      this.banners = res.data.banner.list;
-      this.recommends = res.data.recommend.list;
-    });
+    this._getHomeMultidata(),
+    this._getProductData(pop),
+    // this._getProductData(new),
+    this._getProductData(cell)
   },
+  methods: {
+    _getHomeMultidata() {
+      getHomeMultidata().then((res) => {
+        // console.log(res);
+        this.banners = res.data.banner.list;
+        this.recommends = res.data.recommend.list;
+      })
+    },
+    _getProductData(type) {
+      const page = this.goods[type].page
+      getProductData(type, page).then(res => {
+        console.log(res)
+      })
+    }
+  }
 };
 </script>
 
