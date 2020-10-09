@@ -25,15 +25,15 @@
 // import 'swiper/swiper-bundle.css'
 
 export default {
-  name: "HomeSwiper",
+  name: 'HomeSwiper',
   props: {
     banners: {
       type: Array,
-      default() {
-        return [];
-      },
-    },
-  },
+      default () {
+        return []
+      }
+    }
+  }
   // data () {
   //   return {
   //     swiperOption: {
@@ -53,7 +53,7 @@ export default {
   // mounted() {
   //   this.mySwiper.slideTo(3, 1000, false)
   // }
-};
+}
 </script>
 
 <style lang="less" scoped>

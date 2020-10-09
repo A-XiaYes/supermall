@@ -11,16 +11,16 @@
 
 <script>
 export default {
-  name: "HomeRecommend",
+  name: 'HomeRecommend',
   props: {
     recommends: {
       type: Array,
-      default() {
-        return [];
-      },
-    },
-  },
-};
+      default () {
+        return []
+      }
+    }
+  }
+}
 </script>
 
 <style scoped>

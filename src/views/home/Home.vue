@@ -7,9 +7,8 @@
     </nav-bar>
     <home-swiper :banners="banners" />
     <home-recommend :recommends="recommends" />
-    <home-feature/>
-    <tab-control :titles="['流行', '新款', '精选']"/>
-
+    <home-feature />
+    <tab-control :titles="['流行', '新款', '精选']" />
 
     <ul>
       <li>11</li>
@@ -117,14 +116,14 @@
 </template>
 
 <script>
-import NavBar from "@components/common/navbar/NavBar";
-import TabControl from "@components/content/Tabcontrol/TabControl"
-import HomeSwiper from "./childComps/HomeSwiper";
-import HomeRecommend from "./childComps/HomeRecommend";
-import HomeFeature from "./childComps/HomeFeature";
-import { getHomeMultidata, getProductData } from "@network/home";
+import NavBar from '@components/common/navbar/NavBar'
+import TabControl from '@components/content/Tabcontrol/TabControl'
+import HomeSwiper from './childComps/HomeSwiper'
+import HomeRecommend from './childComps/HomeRecommend'
+import HomeFeature from './childComps/HomeFeature'
+import { getHomeMultidata, getProductData } from '@network/home'
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     NavBar,
     TabControl,
@@ -132,39 +131,39 @@ export default {
     HomeRecommend,
     HomeFeature
   },
-  data() {
+  data () {
     return {
       banners: [],
       recommends: [],
       goods: {
-        'pop': {page: 1, list: []},
-        'new': {page: 1, list: []},
-        'sell': {page: 1, list: []}
+        pop: { page: 1, list: [] },
+        new: { page: 1, list: [] },
+        sell: { page: 1, list: [] }
       }
-    };
+    }
   },
-  created() {
-    this._getHomeMultidata(),
-    this._getProductData(pop),
+  created () {
+    this._getHomeMultidata()
+    this._getProductData()
     // this._getProductData(new),
-    this._getProductData(cell)
+    this._getProductData()
   },
   methods: {
-    _getHomeMultidata() {
+    _getHomeMultidata () {
       getHomeMultidata().then((res) => {
         // console.log(res);
-        this.banners = res.data.banner.list;
-        this.recommends = res.data.recommend.list;
+        this.banners = res.data.banner.list
+        this.recommends = res.data.recommend.list
       })
     },
-    _getProductData(type) {
+    _getProductData (type) {
       const page = this.goods[type].page
-      getProductData(type, page).then(res => {
+      getProductData(type, page).then((res) => {
         console.log(res)
       })
     }
   }
-};
+}
 </script>
 
 <style scoped>

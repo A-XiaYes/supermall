@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: "HomeFeature"
+  name: 'HomeFeature'
 }
 </script>
 

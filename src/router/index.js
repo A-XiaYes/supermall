@@ -6,14 +6,12 @@ const Category = () => import('../views/category/Category')
 const Cart = () => import('../views/cart/Cart')
 const Profile = () => import('../views/profile/Profile')
 
+Vue.use(VueRouter)
 
-Vue.use(VueRouter);
-
-const originalPush = VueRouter.prototype.push;
-VueRouter.prototype.push = function push(location) {
-  return originalPush.call(this, location).catch(err => err);
-};
-
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push (location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 
 const routes = [
   {
@@ -35,7 +33,7 @@ const routes = [
   {
     path: '/profile',
     component: Profile
-  },
+  }
 ]
 
 const router = new VueRouter({

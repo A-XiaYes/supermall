@@ -5,13 +5,13 @@
 </template>
 
 <script>
-import MainTabBar from "@components/content/Maintabbar/MainTabBar";
+import MainTabBar from '@components/content/Maintabbar/MainTabBar'
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    MainTabBar,
-  },
-};
+    MainTabBar
+  }
+}
 </script>
 
 <style scoped>
