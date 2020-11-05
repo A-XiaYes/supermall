@@ -6,8 +6,9 @@
 
 <script>
 export default {
-  name: "TabBar",
-};
+  name: 'TabBar'
+
+}
 </script>
 
 <style lang="less" scoped>
@@ -21,6 +22,6 @@ export default {
   left: 0;
   background: #f6f6f6;
   box-shadow: 0px -1px 10px 0px rgba(0, 0, 0, 0.15);
-  font-size: 14PX;
+  font-size: 12PX;
 }
 </style>

@@ -1,8 +1,7 @@
 <template>
   <div>
-    <router-view></router-view>
     <tab-bar>
-      <tab-bar-item path="/home">
+      <tab-bar-item path="/home" :activeColor="activeColor">
         <template #item-icon>
           <img slot="item-icon" src="@static/img/tabbar/home.svg" alt />
         </template>
@@ -13,7 +12,7 @@
           <div slot="item-text">首页</div>
         </template>
       </tab-bar-item>
-      <tab-bar-item path="/category">
+      <tab-bar-item path="/category" :activeColor="activeColor">
         <template #item-icon>
           <img slot="item-icon" src="@static/img/tabbar/category.svg" alt />
         </template>
@@ -24,7 +23,7 @@
           <div slot="item-text">分类</div>
         </template>
       </tab-bar-item>
-      <tab-bar-item path="/cart">
+      <tab-bar-item path="/cart" :activeColor="activeColor">
         <template #item-icon>
           <img slot="item-icon" src="@static/img/tabbar/shopcart.svg" alt />
         </template>
@@ -35,7 +34,7 @@
           <div slot="item-text">购物车</div>
         </template>
       </tab-bar-item>
-      <tab-bar-item path="/profile">
+      <tab-bar-item path="/profile" :activeColor="activeColor">
         <template #item-icon>
           <img slot="item-icon" src="@static/img/tabbar/profile.svg" alt />
         </template>
@@ -51,13 +50,18 @@
 </template>
 
 <script>
-import TabBar from "@components/common/tabbar/TabBar";
-import TabBarItem from "@components/common/tabbar/TabBarItem";
+import TabBar from '@components/common/tabbar/TabBar'
+import TabBarItem from '@components/common/tabbar/TabBarItem'
 export default {
-  name: "MainTabBar",
+  name: 'MainTabBar',
   components: {
     TabBar,
-    TabBarItem,
+    TabBarItem
   },
-};
+  data () {
+    return {
+      activeColor: 'red'
+    }
+  }
+}
 </script>

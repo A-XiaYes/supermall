@@ -16,33 +16,33 @@
 
 <script>
 export default {
-  name: "TabBarItem",
+  name: 'TabBarItem',
   props: {
     path: String,
     activeColor: {
       type: String,
-      default: "hotpink",
-    },
+      default: 'hotpink'
+    }
   },
-  data() {
+  data () {
     return {
       // isActive: true,
-    };
+    }
   },
   methods: {
-    itemClick() {
-      this.$router.push(this.path);
-    },
+    itemClick () {
+      this.$router.push(this.path)
+    }
   },
   computed: {
-    isActive() {
-      return this.$route.fullPath === this.path;
+    isActive () {
+      return this.$route.fullPath === this.path
     },
-    activeStyle() {
-      return this.isActive ? { color: this.activeColor } : {};
-    },
-  },
-};
+    activeStyle () {
+      return this.isActive ? { color: this.activeColor } : {}
+    }
+  }
+}
 </script>
 
 <style lang="less" scoped>
@@ -57,8 +57,8 @@ export default {
   justify-content: center;
 }
 .tab-bar-item img {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   margin-bottom: 2px;
 }
 </style>

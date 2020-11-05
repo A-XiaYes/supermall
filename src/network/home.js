@@ -1,17 +1,23 @@
-import { request } from "./network";
+import { request } from './network'
 
-export function getHomeMultidata() {
+function getHomeMultidata() {
   return request({
     url: '/home/multidata'
   })
-} 
+}
 
-export function getProductData(type, page) {
+function getHomeGoods(type, page) {
   return request({
     url: '/home/data',
+    method: 'get',
     params: {
       type,
       page
     }
   })
+}
+
+export {
+  getHomeMultidata,
+  getHomeGoods
 }

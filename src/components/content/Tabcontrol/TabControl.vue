@@ -1,27 +1,37 @@
 <template>
   <div class="tab-control">
-    <!-- <div class="tab-control-item" 
+    <div class="tab-control-item"
          v-for="(item, index) in titles"
          :key="index"
          :class="{ active: currentIndex === index }"
          @click="itemClick(index)">
          <span>{{ item }}</span>
-    </div> -->
+    </div>
 
-    <van-tabs v-model="active" swipeable color="#ff5777" title-active-color="#ff5777">
-      <van-tab v-for="(item, index) in titles" :title="item" :key="index">
+    <!-- <van-tabs
+      v-model="active"
+      swipeable
+      color="#ff5777"
+      title-active-color="#ff5777"
+      @click="tabClick(active)"
+    >
+      <van-tab
+        v-for="(item, index) in titles"
+        :title="item"
+        :key="index"
+      >
       </van-tab>
-    </van-tabs>
+    </van-tabs> -->
   </div>
 </template>
 
 <script>
 export default {
-  name: "TabControl",
+  name: 'TabControl',
   props: {
     titles: {
       type: Array,
-      default() {
+      default () {
         return []
       }
     }
@@ -29,13 +39,17 @@ export default {
   data () {
     return {
       currentIndex: 0,
-      active: 2,
+      active: 0
     }
   },
   methods: {
     itemClick (index) {
       this.currentIndex = index
+      this.$emit('tabClick', index)
     }
+    // tabClick(index) {
+    //   this.$emit('tabClick', index)
+    // }
   }
 }
 </script>
@@ -48,24 +62,24 @@ export default {
   line-height: 44px;
   background: #fff;
   font-size: 14PX;
-  // .tab-control-item {
-  //   flex: 1;
-  //   span {
-  //     padding: 3px;
-  //   }
-  // }
-  // .active {
-  //   color: var(--color-high-text);
-  //   span {
-  //     border-bottom: 3px solid var(--color-high-text);
-  //   }
-  // }
-}
-
-/deep/ .van-tabs {
-  flex: 1;
-  .van-tabs__line {
-    bottom: 22px;
+  .tab-control-item {
+    flex: 1;
+    span {
+      padding: 3px;
+    }
+  }
+  .active {
+    color: var(--color-high-text);
+    span {
+      border-bottom: 3px solid var(--color-high-text);
+    }
   }
 }
+
+// /deep/ .van-tabs {
+//   flex: 1;
+//   .van-tabs__line {
+//     bottom: 22px;
+//   }
+// }
 </style>
